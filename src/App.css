@@ -17,6 +17,10 @@
   border-radius: var(--border-radius);
   background-color: var(--display-background);
   color: var(--text-color);
+  width: 203px;
+  height: 63px;
+  overflow: hidden;
+  direction: rtl;
 }
 
 #numberpad, #mainpad, #digits, #operations {
