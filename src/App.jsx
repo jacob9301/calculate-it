@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Display from './components/Display'
-import Numberpad from './components/Numberpad'
+import Numberpad from './components/numberpad/Numberpad'
 
 function App() {
   const [count, setCount] = useState(0)

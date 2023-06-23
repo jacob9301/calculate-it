@@ -16,7 +16,7 @@ const rootReducer = (state = initialState, action) => {
         
         case 'ALL_CLEAR' :
             return {
-                initialState
+                ...initialState
             };
         
         case 'SET_OPERATION' :
@@ -27,8 +27,16 @@ const rootReducer = (state = initialState, action) => {
 
         case 'CALCULATE_IT' :
             return {
-                ...state
+                ...state,
+                history: 'CALCULATE IT',
+                operation: null
             };
+
+        case 'UPDATE_HISTORY' :
+            return {
+                ...state,
+                history: action.payload
+            }
 
         default:
             return state;

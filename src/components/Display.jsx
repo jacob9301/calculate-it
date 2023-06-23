@@ -1,11 +1,17 @@
+import { useSelector } from 'react-redux';
+
 const Display = () => {
+
+    const current = useSelector(state => state.current);
+    const history = useSelector(state => state.history);
+
     return (
         <div id="display">
             <div id="history" className="disp">
-                hist
+                {history}
             </div>
             <div id="main-display" className="disp">
-                main
+                {current}
             </div>
         </div>
     )
