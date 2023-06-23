@@ -1,0 +1,80 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#card {
+  background-color: var(--card-color);
+  padding: 15px 10px;
+  box-shadow: 0 0 30px var(--shadow-color);
+  border-radius: var(--border-radius);
+}
+
+#display {
+  margin-bottom: 10px;
+  border-radius: var(--border-radius);
+  background-color: var(--display-background);
+  color: var(--text-color);
+}
+
+#numberpad, #mainpad, #digits, #operations {
+  display: grid;
+  grid-gap: 1px;
+}
+
+#mainpad {
+  grid-template-columns: auto auto;
+}
+
+#digits {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+#operations {
+  grid-template-columns: auto;
+}
+
+#topbar {
+  display: flex;
+  justify-content: flex-end;
+  grid-gap: 1px;
+}
+
+#clear {
+  height: var(--button-height);
+}
+
+.uniform-button {
+  width: var(--button-width);
+  height: var(--button-height);
+}
+
+.top-button {
+  background-color: var(--top-color);
+  margin-bottom: 0.5px;
+}
+
+.top-button:hover {
+  border-color: var(--top-color);
+  background-color: var(--top-hover-color);
+}
+
+.top-button:active {
+  border-color: var(--button-active-border);
+}
+
+.disp {
+  text-align: right;
+  margin: 0 5px;
+}
+
+#main-display {
+  font-size: var(--main-font-size);
+}
+
+#history {
+  font-size: var(--history-font-size);
+}
