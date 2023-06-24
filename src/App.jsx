@@ -4,7 +4,6 @@ import Display from './components/Display'
 import Numberpad from './components/numberpad/Numberpad'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
