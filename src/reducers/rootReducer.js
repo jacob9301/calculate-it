@@ -1,7 +1,8 @@
 const initialState = {
     current: '0',
     history: '0',
-    operation: null
+    operation: null,
+    equalsPressed: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -25,11 +26,10 @@ const rootReducer = (state = initialState, action) => {
                 operation: action.payload
             };
 
-        case 'CALCULATE_IT' :
+        case 'UPDATE_EQUALS_PRESSED' :
             return {
                 ...state,
-                history: 'CALCULATE IT',
-                operation: null
+                equalsPressed: action.payload
             };
 
         case 'UPDATE_HISTORY' :

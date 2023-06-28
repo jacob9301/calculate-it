@@ -1,17 +1,26 @@
 import { useSelector, useDispatch } from "react-redux";
-import { updateCurrent, calculateIt } from "../../actions/calculatorAction";
+import { allClear, updateHistory, updateCurrent, updateEqualsPressed, setOperation } from "../../actions/calculatorAction";
+import calculate from "../../util/evaluate";
 
 const Digits = () => {
 
     const current = useSelector(state => state.current);
+    const history = useSelector(state => state.history);
+    const operation = useSelector(state => state.operation);
+    const equalsPressed = useSelector(state => state.equalsPressed);
     const dispatch = useDispatch();
 
     const handleButton = (event) => {
         const value = event.target.innerHTML;
 
         let newCurrent = '0';
-        
-        if (value != '0'){
+
+        if (equalsPressed) {
+            dispatch(allClear());
+            dispatch(updateEqualsPressed(false));
+            newCurrent = value;
+
+        } else if (value != '0'){
 
             if (current == '0') {
                 newCurrent = value;
@@ -30,14 +39,26 @@ const Digits = () => {
 
     const handleDecimal = () => {
         
-        if (!current.includes('.')) {
+        if (equalsPressed) {
+            dispatch(allClear());
+            dispatch(updateEqualsPressed(false));
+            dispatch(updateCurrent('0.'));
+        } else if (!current.includes('.')) {
             const newCurrent = current + '.';
             dispatch(updateCurrent(newCurrent));
         }
     }
 
     const handleEquals = () => {
-        dispatch(calculateIt());
+        dispatch(updateEqualsPressed(true));
+        if (operation) {
+            const result = calculate([history,current],operation);
+            const newHistory = history + operation + current + '=';
+            dispatch(setOperation(null));
+            dispatch(updateHistory(newHistory));
+            dispatch(updateCurrent(result.toString()));
+        }
+        
     }
 
     return (

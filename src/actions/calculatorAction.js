@@ -2,8 +2,9 @@ export const allClear = () => ({
     type: 'ALL_CLEAR'
 });
 
-export const calculateIt = () => ({
-    type: 'CALCULATE_IT'
+export const updateEqualsPressed = (bool) => ({
+    type: 'UPDATE_EQUALS_PRESSED',
+    payload: bool
 })
 
 export const updateCurrent = (newCurrent) => ({
@@ -17,6 +18,6 @@ export const setOperation = (operation) => ({
 })
 
 export const updateHistory = (newHistory) => ({
-    type: 'UPDATE_CURRENT',
+    type: 'UPDATE_HISTORY',
     payload: newHistory
 })

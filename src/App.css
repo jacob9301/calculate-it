@@ -23,6 +23,13 @@
   direction: rtl;
 }
 
+#main-display, #history {
+  direction: ltr;
+  width: 100%;
+  white-space: nowrap;
+  display: inline-block;
+}
+
 #numberpad, #mainpad, #digits, #operations {
   display: grid;
   grid-gap: 1px;
